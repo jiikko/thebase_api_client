@@ -27,7 +27,7 @@ create_table :thebase_accounts do |t|
   t.string, :access_token, null: false
   t.string, :refresh_token, null: false
   t.datetime :expires_at, null: false
-  t.datetime :revoked_at, null: false
+  t.datetime :revoked_at, null: true
   t.timestamps null: false
 end
 
@@ -59,6 +59,18 @@ thebase_account.update!(
   expires_at: hash[:expires_at],
   revoked_at: nil,
 )
+```
+
+### 注文一覧を取得する
+```ruby
+client = ThebaesApiClient.new(thebase_account)
+client.orders(page: 0) # => [Orderインスタンス]
+```
+
+### 注文詳細を取得する
+```ruby
+client = ThebaesApiClient.new(thebase_account)
+client.order(unique_key: 'ABCMART') # => OrderDetailインスタンス
 ```
 
 ## Development

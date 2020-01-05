@@ -51,26 +51,17 @@ user.create_thebase_account!(
 ### Refreshトークンを使って access_token, refresh_token, expires_atを取得する
 ```ruby
 thebase_account = ThebaseAccount.last
-client = ThebaesApiClient.new(thebase_account)
-hash = client.refresh_access_token
-thebase_account.update!(
-  access_token: hash[:access_token],
-  refresh_token: hash[:refresh_token],
-  expires_at: hash[:expires_at],
-  revoked_at: nil,
-)
+ThebaesApiClient.new(thebase_account).refresh!
 ```
 
 ### 注文一覧を取得する
 ```ruby
-client = ThebaesApiClient.new(thebase_account)
-client.orders(page: 0) # => [Orderインスタンス]
+ThebaesApiClient.new(thebase_account).orders(page: 0) # => [Orderインスタンス]
 ```
 
 ### 注文詳細を取得する
 ```ruby
-client = ThebaesApiClient.new(thebase_account)
-client.order(unique_key: 'ABCMART') # => OrderDetailインスタンス
+ThebaesApiClient.new(thebase_account).order(unique_key: 'ABCMART') # => OrderDetailインスタンス
 ```
 
 ## Development

@@ -71,6 +71,6 @@ class ThebaesApiClient::Service
   private
 
   def call_api(&block)
-    ThebaesApiClient::Repositories::TokenInitializer.new(thebase_account, &block)
+    ThebaesApiClient::Repositories::AccessToken.new(thebase_account, &block)
   end
 end

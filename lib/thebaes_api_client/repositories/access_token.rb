@@ -1,4 +1,4 @@
-module ThebaesApiClient::Repositories::TokenInitializer
+module ThebaesApiClient::Repositories::AccessToken
   attr_accessor :thebase_account
 
   def initialize(thebase_account)

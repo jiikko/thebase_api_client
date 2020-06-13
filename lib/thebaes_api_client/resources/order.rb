@@ -11,4 +11,8 @@ class ThebaesApiClient::Resouces::Order
     instance.dispatch_status = hash['dispatch_status']
     instance
   end
+
+  def fetch!
+    order(unique_key)
+  end
 end

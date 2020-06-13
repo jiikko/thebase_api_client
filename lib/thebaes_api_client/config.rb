@@ -1,0 +1,2 @@
+class ThebaesApiClient::Config
+end

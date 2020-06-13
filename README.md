@@ -56,12 +56,15 @@ ThebaesApiClient.new(thebase_account).refresh!
 
 ### 注文一覧を取得する
 ```ruby
-ThebaesApiClient.new(thebase_account).orders(page: 0) # => [Orderインスタンス]
+order_list = ThebaesApiClient.new(thebase_account).orders(page: 0) # => [Order]
+order_list[0] # Order
+
 ```
 
 ### 注文詳細を取得する
 ```ruby
-ThebaesApiClient.new(thebase_account).order(unique_key: 'ABCMART') # => OrderDetailインスタンス
+order = ThebaesApiClient.new(thebase_account).order(unique_key: 'ABCMART') # => OrderDetailインスタンス
+Order.attributes
 ```
 
 ## Development

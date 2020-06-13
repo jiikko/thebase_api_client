@@ -8,6 +8,7 @@ module ThebaesApiClient::Repositories::AccessToken
       thebase_account.expires_at,
     )
 
+    # 期限を見るのではなくて403が返ってきたらrefreshしたい
     refresh! if thebase_account.expired?
     begin
       yield(oauth2_client)

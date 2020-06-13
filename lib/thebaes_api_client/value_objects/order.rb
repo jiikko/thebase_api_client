@@ -1,4 +1,4 @@
-class ThebaesApiClient::Resouces::Order
+class ThebaesApiClient::ValueObject::Order
   attr_accessor :unique_key, :ordered_at, :cancelled_at, :modified_at, :payment, :dispatch_status, :orders
 
   def initialize(context)
@@ -21,7 +21,7 @@ class ThebaesApiClient::Resouces::Order
       hash = JSON.parse(
         oauth2_client.token.get("/1/items/detail/#{unique_key}").body
       )['order']
-      ThebaesApiClient::Resouces::Order.parse(hash)
+      ThebaesApiClient::ValueObject::Order.parse(hash)
     end
   end
 
@@ -31,7 +31,7 @@ class ThebaesApiClient::Resouces::Order
       uri.query = option.to_query if option.present?
       list = JSON.parse(oauth2_client.token.get(uri.to_s).body)['order']
       list.map do |hash|
-        ThebaesApiClient::Resouces::Order.parse(hash)
+        ThebaesApiClient::ValueObject::Order.parse(hash)
       end
     end
   end

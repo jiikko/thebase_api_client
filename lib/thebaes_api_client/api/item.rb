@@ -13,7 +13,7 @@ module ThebaesApiClient::API::Item
     ThebaesApiClient::Resouces::Item.find(item_id).delete
   end
 
-  def soldout(itme_id)
+  def soldout_item(itme_id)
     ThebaesApiClient::Resouces::Item.find(item_id).soldout!
   end
 

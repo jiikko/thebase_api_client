@@ -1,7 +1,4 @@
 module ThebaesApiClient::ApiCaller
-  include ThebaesApiClient::API::Order
-  include ThebaesApiClient::API::Item
-
   private
 
   def call_api

@@ -1,9 +1,5 @@
-module ThebaesApiClient::Repository
-  class Item
-    def initialize(oauth2_client)
-      @oauth2_client = oauth2_client
-    end
-
+module ThebaesApiClient::Repositories
+  class Item < ::ThebaesApiClient::Repositories::Base
     def show(item_id)
       json = JSON.parse(
         @token.post("/1/items/detail/#{item_id}").body

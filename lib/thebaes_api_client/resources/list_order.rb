@@ -1,5 +1,5 @@
-class ThebaesApiClient::Resouces::Order
-  attr_accessor :unique_key, :ordered_at, :cancelled_at, :modified_at, :payment, :dispatch_status, :orders
+class ThebaesApiClient::Resouces::ListOrder
+  attr_accessor :unique_key, :ordered_at, :cancelled_at, :modified_at, :payment, :dispatch_status
 
   def self.parse(hash)
     instance = new

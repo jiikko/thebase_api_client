@@ -22,5 +22,4 @@ class ThebaesApiClient::Client
       expires_at: result[:expires_at],
     }
   end
-
 end

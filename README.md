@@ -69,6 +69,11 @@ ThebaesApiClient.new(thebase_account).order(unique_key: 'ABCMART') # => Order
 ThebaesApiClient.new(thebase_account).create_item(item_id: 1, title: '犬')
 ```
 
+### 商品の在庫を0にする
+```ruby
+ThebaesApiClient.new(thebase_account).soldout_item(item_id: 1)
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.

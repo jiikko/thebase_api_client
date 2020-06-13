@@ -1,4 +1,4 @@
-class ThebaesApiClient::Client
+class ThebaesApiClient::Service
   class ServerError < StandardError; end
 
   include ThebaesApiClient::Auth

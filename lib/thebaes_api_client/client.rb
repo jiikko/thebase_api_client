@@ -47,29 +47,29 @@ class ThebaesApiClient::Client
     item.price = item_hash[:price]
     raise(ThebaesApiClient::ValueObject::Item::InvalidAttributes) if invalid?
     call_api do |oauth2_client|
-      repo = ThebaesApiClient::Repositories::Item.new
-      repo.new(oauth2_client).create(item.to_hash)
+      repo = ThebaesApiClient::Repositories::Item.new(oauth2_client)
+      repo.create(item.to_hash)
       ThebaesApiClient::ValueObject::Item.parse(
-        repo.new(oauth2_client).show(item.to_hash)['item']
+        repo.show(item.to_hash)['item']
       )
     end
   end
 
   def delete_item(itme_id)
     call_api do |oauth2_client|
-      ThebaesApiClient::Repositories::Item.new(item_id).delete(item_id)
+      ThebaesApiClient::Repositories::Item.new(oauth2_client).delete(item_id)
     end
   end
 
   def soldout_item(itme_id)
     call_api do |oauth2_client|
-      ThebaesApiClient::Repositories::Item.new(item_id).soldout(item_id)
+      ThebaesApiClient::Repositories::Item.new(oauth2_client).soldout(item_id)
     end
   end
 
   def upload_item_image(item_id, url, position)
     call_api do |oauth2_client|
-      ThebaesApiClient::Repositories::Item.new(item_id).upload_image(item_id)
+      ThebaesApiClient::Repositories::Item.new(oauth2_client).upload_image(item_id)
     end
   end
 end
